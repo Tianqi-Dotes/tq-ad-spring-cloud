@@ -13,6 +13,7 @@
     <modules>
         <module>ad-eureka</module>
         <module>ad-gateway</module>
+        <module>tq-ad-service</module>
     </modules>
 
     <name>tq-ad-spring-cloud</name>

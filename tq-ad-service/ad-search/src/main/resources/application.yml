@@ -1,11 +1,11 @@
 server:
-  port: 7000
+  port: 7001
   servlet:
-    context-path: /ad-sponsor #所以mapping前缀
+    context-path: /ad-search #所以mapping前缀
 
 spring:
   application:
-    name: eureka-client-ad-sponsor
+    name: eureka-client-ad-search
   datasource:
     name: dd
     #使用druid连接池
@@ -75,14 +75,25 @@ mybatis-plus:
       logic-not-delete-value: 0
       db-type: mysql
     refresh: true
-      #自定义填充策略接口实现
+    #自定义填充策略接口实现
     #meta-object-handler: com.baomidou.springboot.xxx
     #自定义SQL注入器
   #sql-injector: com.baomidou.mybatisplus.extension.injector.LogicSqlInjector
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
 eureka:
   client:
     service-url:
       defaultZone: http://server1:8000/eureka/
+
+feign:
+  hystrix:
+    enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -84,7 +84,7 @@ public class AdUnitServiceImpl extends ServiceImpl<AdUnitMapper, AdUnit> impleme
 
         List<AdUnitKeyword> keywords=new ArrayList<>();
         request.getList().stream().forEach(keyword -> keywords.add(new AdUnitKeyword(keyword.getUnitId(),keyword.getKeyword())));
-        keywordService.insertBatch(keywords);
+        keywordService.saveBatch(keywords);
 
         List<Long> newIds=Collections.emptyList();
         keywords.stream().map(AdUnitKeyword::getId).forEach(id->newIds.add(id));
@@ -102,7 +102,7 @@ public class AdUnitServiceImpl extends ServiceImpl<AdUnitMapper, AdUnit> impleme
         }
         List<AdUnitIt> its=new ArrayList<>();
         request.getUnitIts().stream().forEach(it -> its.add(new AdUnitIt(it.getUnitId(),it.getItTag())));
-        itService.insertBatch(its);
+        itService.saveBatch(its);
 
         List<Long> newIds=Collections.emptyList();
         its.stream().map(AdUnitIt::getId).forEach(id->newIds.add(id));
@@ -119,7 +119,7 @@ public class AdUnitServiceImpl extends ServiceImpl<AdUnitMapper, AdUnit> impleme
         }
         List<AdUnitDistrict> districts=new ArrayList<>();
         request.getDistricts().stream().forEach(district -> districts.add(new AdUnitDistrict(district.getUnitId(),district.getProvince(),district.getCity())));
-        districtService.insertBatch(districts);
+        districtService.saveBatch(districts);
 
         List<Long> newIds=Collections.emptyList();
         districts.stream().map(AdUnitDistrict::getId).forEach(id->newIds.add(id));
@@ -140,7 +140,7 @@ public class AdUnitServiceImpl extends ServiceImpl<AdUnitMapper, AdUnit> impleme
 
         List<CreativeUnit> list=new ArrayList<>();
         request.getItemList().stream().forEach(creativeUnitItem -> list.add(new CreativeUnit(creativeUnitItem.getCreativeId(),creativeUnitItem.getUnitId())));
-        creativeUnitService.insertBatch(list);
+        creativeUnitService.saveBatch(list);
 
         List<Long> newIds= list.stream().map(CreativeUnit::getId).collect(Collectors.toList());
         return new CreativeUnitResponse(newIds);
@@ -163,7 +163,7 @@ public class AdUnitServiceImpl extends ServiceImpl<AdUnitMapper, AdUnit> impleme
         }
         QueryWrapper<AdCreative> queryWrapper=new QueryWrapper<>();
         queryWrapper.in("id",ids);
-        return adCreativeService.selectList(queryWrapper).size()==
+        return adCreativeService.list(queryWrapper).size()==
                 new HashSet<>(ids).size();
     }
 }

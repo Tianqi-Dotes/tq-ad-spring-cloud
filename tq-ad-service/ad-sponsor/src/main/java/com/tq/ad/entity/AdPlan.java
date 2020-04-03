@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tq.ad.constant.CommonStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -54,21 +55,25 @@ public class AdPlan implements Serializable {
     /**
      * 推广计划开始时间；
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @TableField("start_date")
     private LocalDateTime startDate;
     /**
      * 推广计划结束时间；
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @TableField("end_date")
     private LocalDateTime endDate;
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @TableField("create_time")
     private LocalDateTime createTime;
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @TableField("update_time")
     private LocalDateTime updateTime;
 

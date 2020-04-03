@@ -12,7 +12,7 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
-    //重新http 转换器 对象转json
+    /* 重新http 转换器 对象转json */
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
         converters.clear();

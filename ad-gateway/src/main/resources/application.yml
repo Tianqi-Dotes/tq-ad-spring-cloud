@@ -7,3 +7,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://server1:8000/eureka/
+zuul:
+  prefix: /tq #网关路由前缀
+  routes: #路由
+    sponsor: #定义路由微服务名称
+      path: /ad-sponsor/** #次级前缀
+      serviceId: eureka-client-ad-sponsor #根据path转发微服务id
+      strip-prefix: false #是否去掉path和prefix

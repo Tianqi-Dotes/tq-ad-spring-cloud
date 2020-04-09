@@ -22,7 +22,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,6 +48,21 @@ public class DdApplicationTests {
 
 	}
 
+
+	private class Singleton{
+		private volatile Singleton singleton;
+		private Singleton(){}
+		private Singleton getSingleton(){
+			if (singleton==null){
+				synchronized (Singleton.class){
+					if(singleton==null){
+						singleton=new Singleton();
+					}
+				}
+			}
+			return singleton;
+		}
+	}
 	private void dumpAdPlans(String fileName){
 
 		QueryWrapper<AdPlan> queryWrapper=new QueryWrapper<>();

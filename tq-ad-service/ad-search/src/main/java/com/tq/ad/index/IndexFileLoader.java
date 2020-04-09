@@ -1,3 +1,4 @@
+/*
 package com.tq.ad.index;
 
 import com.alibaba.fastjson.JSON;
@@ -56,3 +57,4 @@ public class IndexFileLoader {
         return null;
     }
 }
+*/

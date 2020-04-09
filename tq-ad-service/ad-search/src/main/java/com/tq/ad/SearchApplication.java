@@ -20,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @EnableHystrixDashboard
 @SpringBootApplication
+@MapperScan("com.tq.ad.schema_entity")
 public class SearchApplication {
 
     public static void main(String[] args) {

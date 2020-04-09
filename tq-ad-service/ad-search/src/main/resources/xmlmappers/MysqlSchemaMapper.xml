@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tq.ad.schema_entity.MysqlSchemaMapper">
+
+    <!-- 根据id查询数据-->
+    <select id="queryMysqlSchemaColumn" parameterType="String"
+            resultType="com.tq.ad.schema_entity.MysqlSchema">
+            select TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, ORDINAL_POSITION from INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='ad' and table_name=#{tableName};
+    </select>
+
+</mapper>

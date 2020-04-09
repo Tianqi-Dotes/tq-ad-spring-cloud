@@ -42,7 +42,7 @@ mybatis:
   # 映射文件所在路径
   mapper-locations: classpath:xmlmappers/*.xml
   # pojo类所在包路径
-  type-aliases-package: com.tq.ad.entity
+  type-aliases-package: com.tq.ad.schema_entity
 
 #pagehelper
 pagehelper:
@@ -57,7 +57,7 @@ pagehelper:
 mybatis-plus:
   mapper-locations: classpath:/xmlmappers/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.tq.ad.entity
+  typeAliasesPackage: com.tq.ad.schema_entity
   #typeEnumsPackage: com.baomidou.springboot.entity.enums
   global-config:
     #刷新mapper 调试神器
@@ -97,3 +97,12 @@ management:
     web:
       exposure:
         include: "*"
+
+adconf:
+  mysql:
+    host: localhost
+    port: 3306
+    username: root
+    password: tq1994
+    binlogName: ""
+    position: -1

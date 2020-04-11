@@ -106,3 +106,5 @@ adconf:
     password: tq1994
     binlogName: ""
     position: -1
+  kafka:
+    topic: ad-binlog-changes

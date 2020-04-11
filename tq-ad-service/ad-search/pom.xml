@@ -133,11 +133,11 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
         <!--kafka 依赖-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
             <version>2.2.5.RELEASE</version>
-        </dependency>-->
+        </dependency>
     </dependencies>
     <!--
     SpringBoot 的 Maven 插件, 能够以 Maven 的方式为应用提供 SpringBoot 的支 持，可以将

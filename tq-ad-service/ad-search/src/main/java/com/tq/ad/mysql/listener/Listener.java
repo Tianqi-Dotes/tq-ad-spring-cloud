@@ -7,17 +7,21 @@ import com.tq.ad.mysql.dto.JsonTable;
 import com.tq.ad.mysql.dto.MysqlRowData;
 import com.tq.ad.sender.ISender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+
+@Component
 public class Listener implements ILisener {
 
     @Autowired
     AggregationListener aggregationListener;
 
-    @Autowired
+    @Resource(name="IndexSender")
     ISender sender;
 
     @Override
